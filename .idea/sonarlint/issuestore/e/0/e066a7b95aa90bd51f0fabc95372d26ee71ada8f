@@ -1,0 +1,4 @@
+
+dsquid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(‹ë‘ùúÿÿÿÿ
+|squid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "actual".(Ä¨ÿ÷8¨®•¦².
+zsquid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "actual".(Õ¼“³þÿÿÿÿ
