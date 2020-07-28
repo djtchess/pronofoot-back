@@ -1,7 +1,7 @@
 package fr.pronofoot.dao;
 
-import fr.pronofoot.entity.PaysEntity;
-import fr.pronofoot.repository.PaysRepository;
+import fr.pronofoot.entity.CompetitionEntity;
+import fr.pronofoot.repository.CompetitionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,14 +11,14 @@ import java.util.List;
 public class CompetitionDao {
  
     @Autowired
-    private PaysRepository paysRepository;
+    private CompetitionRepository competitionRepository;
 
-    public List<PaysEntity> listPays() {
-        return paysRepository.findAll();
+    public List<CompetitionEntity> listCompetitions() {
+        return competitionRepository.findAll();
     }
  
-    public void saveAllPays(List<PaysEntity> pays){
-        paysRepository.saveAll(pays);
+    public void saveAllCompetitions(List<CompetitionEntity> competitions){
+        competitionRepository.saveAll(competitions);
     }
  
 }

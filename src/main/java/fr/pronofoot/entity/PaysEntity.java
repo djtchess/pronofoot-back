@@ -1,7 +1,13 @@
 package fr.pronofoot.entity;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.Collection;
+
+@Setter
+@Getter
 @Entity
 @Table(name = "tpays")
 public class PaysEntity {
@@ -14,23 +20,10 @@ public class PaysEntity {
  
     @Column(name = "nom")
     private String nomPays;
- 
-    
-    public Long getId() {
-        return id;
-    }
- 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-	public String getNomPays() {
-		return nomPays;
-	}
+    @OneToMany(mappedBy="pays", fetch = FetchType.EAGER)
+    private Collection<CompetitionEntity> competitions;
 
-	public void setNomPays(String nomPays) {
-		this.nomPays = nomPays;
-	}
 
 
  

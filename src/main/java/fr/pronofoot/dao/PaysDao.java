@@ -16,9 +16,18 @@ public class PaysDao {
     public List<PaysEntity> listPays() {
         return paysRepository.findAll();
     }
+
+    public PaysEntity getPaysById(Long id) {
+        return paysRepository.getOne(id);
+    }
  
     public void saveAllPays(List<PaysEntity> pays){
         paysRepository.saveAll(pays);
     }
+
+    public PaysEntity getPaysByName(String name){
+        return paysRepository.findOnePaysByNomPays(name);
+    }
+
  
 }
