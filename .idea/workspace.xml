@@ -2,47 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db400549-32de-46b2-85ad-381601ecf28b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/pronofoot/metier/TeamMetier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/pronofoot/model/TeamModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/pronofoot/metier/MatchMetier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.pid" beforeDir="false" afterPath="$PROJECT_DIR$/application.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/pronofoot/controller/UpdateBDDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/pronofoot/controller/UpdateBDDController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/build-info.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/controller/StandingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/controller/StandingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/controller/TeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/controller/TeamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/dao/PaysDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/dao/PaysDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/entity/PaysEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/entity/PaysEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/config/ConfigTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/config/ConfigTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/manager/JfdataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/manager/JfdataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/area/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/area/Area.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/competition/Competition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/competition/Competition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/competition/CompetitionList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/competition/CompetitionList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/competition/CompetitionSeason.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/competition/CompetitionSeason.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/Match.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/Match.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/MatchList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/MatchList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/MatchReferees.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/MatchReferees.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/MatchScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/MatchScore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/MatchTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/match/MatchTime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/player/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/player/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/standing/Standing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/standing/Standing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/standing/StandingTeam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/standing/StandingTeam.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/standing/StandingType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/standing/StandingType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/team/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/team/Team.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/team/TeamList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/model/team/TeamList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/util/UtilJson.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/jfdata/util/UtilJson.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/metier/CompetitionMetier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/metier/CompetitionMetier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fr/pronofoot/repository/PaysRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fr/pronofoot/repository/PaysRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/fr/pronofoot/metier/CompetitionMetierTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/fr/pronofoot/metier/CompetitionMetierTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/competition/CompetitionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/competition/CompetitionTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/config/ConfigTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/config/ConfigTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/match/MatchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/match/MatchTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/player/PlayerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/player/PlayerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/standing/StandingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/standing/StandingTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/team/TeamTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test/team/TeamTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,12 +173,20 @@
       <option name="project" value="LOCAL" />
       <updated>1595950234415</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ajout des teams">
+      <created>1596046970332</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596046970332</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit depuis intellij" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit depuis intellij" />
+    <MESSAGE value="ajout des teams" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout des teams" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2206" y="368" key="#Application" timestamp="1595951043861">
@@ -233,35 +202,35 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="632" y="450" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594555020418" />
-    <state x="1648" y="160" key="CommitChangelistDialog2" timestamp="1595950233546">
+    <state x="1648" y="160" key="CommitChangelistDialog2" timestamp="1596046969367">
       <screen x="0" y="0" width="5120" height="1400" />
     </state>
     <state x="618" y="119" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1594569404128" />
-    <state x="1648" y="160" key="CommitChangelistDialog2/0.0.5120.1400@0.0.5120.1400" timestamp="1595950233546" />
+    <state x="1648" y="160" key="CommitChangelistDialog2/0.0.5120.1400@0.0.5120.1400" timestamp="1596046969367" />
     <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1593687582744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593687582744" />
-    <state width="1211" height="390" key="GridCell.Tab.0.bottom" timestamp="1595967685860">
+    <state width="1210" height="390" key="GridCell.Tab.0.bottom" timestamp="1596049813310">
       <screen x="0" y="0" width="5120" height="1400" />
     </state>
     <state width="1860" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595091196837" />
-    <state width="1211" height="390" key="GridCell.Tab.0.bottom/0.0.5120.1400@0.0.5120.1400" timestamp="1595967685860" />
-    <state width="1211" height="390" key="GridCell.Tab.0.center" timestamp="1595967685859">
+    <state width="1210" height="390" key="GridCell.Tab.0.bottom/0.0.5120.1400@0.0.5120.1400" timestamp="1596049813310" />
+    <state width="1210" height="390" key="GridCell.Tab.0.center" timestamp="1596049813309">
       <screen x="0" y="0" width="5120" height="1400" />
     </state>
     <state width="1860" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595091196837" />
-    <state width="1211" height="390" key="GridCell.Tab.0.center/0.0.5120.1400@0.0.5120.1400" timestamp="1595967685859" />
-    <state width="1211" height="390" key="GridCell.Tab.0.left" timestamp="1595967685859">
+    <state width="1210" height="390" key="GridCell.Tab.0.center/0.0.5120.1400@0.0.5120.1400" timestamp="1596049813309" />
+    <state width="1210" height="390" key="GridCell.Tab.0.left" timestamp="1596049813309">
       <screen x="0" y="0" width="5120" height="1400" />
     </state>
     <state width="1860" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595091196837" />
-    <state width="1211" height="390" key="GridCell.Tab.0.left/0.0.5120.1400@0.0.5120.1400" timestamp="1595967685859" />
-    <state width="1211" height="390" key="GridCell.Tab.0.right" timestamp="1595967685859">
+    <state width="1210" height="390" key="GridCell.Tab.0.left/0.0.5120.1400@0.0.5120.1400" timestamp="1596049813309" />
+    <state width="1210" height="390" key="GridCell.Tab.0.right" timestamp="1596049813310">
       <screen x="0" y="0" width="5120" height="1400" />
     </state>
     <state width="1860" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595091196837" />
-    <state width="1211" height="390" key="GridCell.Tab.0.right/0.0.5120.1400@0.0.5120.1400" timestamp="1595967685859" />
+    <state width="1210" height="390" key="GridCell.Tab.0.right/0.0.5120.1400@0.0.5120.1400" timestamp="1596049813310" />
     <state width="1860" height="344" key="GridCell.Tab.1.bottom" timestamp="1594670552246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -282,10 +251,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="166" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593448647567" />
-    <state x="2071" y="435" key="Vcs.Push.Dialog.v2" timestamp="1595950237315">
+    <state x="2071" y="435" key="Vcs.Push.Dialog.v2" timestamp="1596046977599">
       <screen x="0" y="0" width="5120" height="1400" />
     </state>
-    <state x="2071" y="435" key="Vcs.Push.Dialog.v2/0.0.5120.1400@0.0.5120.1400" timestamp="1595950237315" />
+    <state x="2071" y="435" key="Vcs.Push.Dialog.v2/0.0.5120.1400@0.0.5120.1400" timestamp="1596046977599" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -312,7 +281,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/fr/pronofoot/controller/UpdateBDDController.java</url>
-          <line>36</line>
+          <line>40</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
