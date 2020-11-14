@@ -1,9 +1,22 @@
 package fr.pronofoot.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
 
 @Setter
 @Getter
@@ -23,8 +36,22 @@ public class CompetitionEntity {
     @Column(name = "code")
     private String code;
 
+    @Column(name = "api_id")
+    private Long apiId;
+
     @ManyToOne
     private PaysEntity pays;
- 
-   
+
+    @OneToMany(mappedBy = "competitionEntity")
+    private List<CompetitionTeamEntity> competitionTeamEntityList;
+
+
+    @OneToMany(mappedBy = "competitionEntity", fetch=FetchType.LAZY, cascade={CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE})
+    private List<SaisonEntity> saisonEntityList = new ArrayList<>();
+
+    public void addSaison(SaisonEntity saison){
+        this.saisonEntityList.add(saison);
+        saison.setCompetitionEntity(this);
+    }
+
 }

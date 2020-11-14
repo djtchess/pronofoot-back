@@ -21,11 +21,20 @@ public class PaysEntity {
     @Column(name = "nom")
     private String nomPays;
 
+    @Column(name = "api_id")
+    private Long apiId;
+
     @OneToMany(mappedBy="pays", fetch = FetchType.EAGER)
     private Collection<CompetitionEntity> competitions;
 
 
-
+    public boolean isBigPays(){
+        System.out.println(this.nomPays.toUpperCase().trim());
+        if (this.nomPays.toUpperCase().trim().equals("FRANCE") || this.nomPays.toUpperCase().trim().equals("SPAIN")) {
+            return true;
+        }
+        return false;
+    }
  
    
 }

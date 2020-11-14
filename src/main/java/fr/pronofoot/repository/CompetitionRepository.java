@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CompetitionRepository extends JpaRepository<CompetitionEntity, Long>{
 
-
+    public CompetitionEntity findOneCompetitionByApiId(Long apiId);
 
 }

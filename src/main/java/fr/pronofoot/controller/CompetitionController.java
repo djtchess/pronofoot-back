@@ -1,16 +1,25 @@
 package fr.pronofoot.controller;
 
-import fr.pronofoot.entity.CompetitionEntity;
-import fr.pronofoot.entity.PaysEntity;
-import fr.pronofoot.metier.CompetitionMetier;
-import fr.pronofoot.model.CompetitionModel;
-import fr.pronofoot.model.PaysModel;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import fr.pronofoot.entity.CompetitionEntity;
+import fr.pronofoot.entity.PaysEntity;
+import fr.pronofoot.metier.CompetitionMetier;
+import fr.pronofoot.model.CompetitionListModel;
+import fr.pronofoot.model.CompetitionModel;
+import fr.pronofoot.model.PaysListModel;
+import fr.pronofoot.model.PaysModel;
 
 @CrossOrigin(origins = {"http://localhost:4200"}, allowCredentials = "true")
 @RestController
@@ -21,14 +30,17 @@ public class CompetitionController {
     private CompetitionMetier cm;
 
     @RequestMapping(value="/pays", method= RequestMethod.GET, produces= "application/json")
-    public List<PaysModel> retrieveAllpays(){
+    public PaysListModel retrieveAllpays(){
+        PaysListModel paysListModel = new PaysListModel();
         List<PaysModel> paysModels = new ArrayList<>();
-        cm.getAllPays().forEach(paysEntity -> {
+        cm.getAllPays().stream().filter(PaysEntity::isBigPays).collect(Collectors.toList()).forEach(paysEntity -> {
             PaysModel model = convertToPaysPModel(paysEntity);
             model.setCompetitions(null);
             paysModels.add(model);
         });
-        return paysModels;
+        paysListModel.setPaysList(paysModels);
+        paysListModel.setCount(Long.valueOf(paysModels.size()));
+        return paysListModel;
     }
 
     @GetMapping("/pays/{id}")
@@ -38,10 +50,23 @@ public class CompetitionController {
         return paysModel;
     }
     @GetMapping("/pays/{id}/competitions")
-    public PaysModel getOnePaysAllCompetitions(@PathVariable Long id) {
+    public CompetitionListModel getOnePaysAllCompetitions(@PathVariable Long id) {
+        System.out.println("/pays/"+id+"/competitionsappelée");
         PaysModel paysModel = convertToPaysPModel(cm.getPays(id));
-        return paysModel;
+        CompetitionListModel competitionListModel = new CompetitionListModel();
+        competitionListModel.setCompetitionsList(paysModel.getCompetitions().stream().collect(Collectors.toList()));
+        competitionListModel.setCount(Long.valueOf(competitionListModel.getCompetitionsList().size()));
+        return competitionListModel;
     }
+
+    @GetMapping("/competitions/{id}")
+    public CompetitionModel getCompetitionByPaysId(@PathVariable Long id) {
+        System.out.println("/competitions/"+id+" appelée");
+        CompetitionListModel competitionListModel = new CompetitionListModel();
+        return cm.getCompetitionsByPaysId(id);
+    }
+
+
 
     private PaysModel convertToPaysPModel( PaysEntity entity){
         PaysModel model = new PaysModel();

@@ -1,10 +1,13 @@
 package fr.pronofoot.jfdata.model.team;
 
-import java.util.List;
-
 import fr.pronofoot.jfdata.model.area.Area;
 import fr.pronofoot.jfdata.model.competition.Competition;
 import fr.pronofoot.jfdata.model.player.Player;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Class model for Team
@@ -152,8 +155,16 @@ public class Team {
 		this.venue = venue;
 	}
 
-	public String getLastUpdated() {
-		return lastUpdated;
+	// the getter should return a Date to map with MyClass
+	public Date getLastUpdated() {
+		Date d = null;
+		try {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+			d = format.parse(lastUpdated);
+		} catch(ParseException e) {
+			e.printStackTrace();
+		}
+		return d;
 	}
 
 	public void setLastUpdated(String lastUpdated) {
