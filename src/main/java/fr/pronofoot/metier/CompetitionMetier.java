@@ -19,6 +19,7 @@ import fr.pronofoot.jfdata.model.competition.Competition;
 import fr.pronofoot.jfdata.model.competition.CompetitionList;
 import fr.pronofoot.model.CompetitionModel;
 import fr.pronofoot.model.PaysModel;
+import fr.pronofoot.model.TeamModel;
 
 @Service
 public class CompetitionMetier extends BaseMetier {
@@ -44,7 +45,8 @@ public class CompetitionMetier extends BaseMetier {
         return this.paysDao.listPays();
     }
 
-    public CompetitionModel getCompetitionsByPaysId(Long id){
+
+    public CompetitionModel getCompetitionById(Long id){
         return convertToCompetitionModel(competitionDao.getCompetitionById(id));
     }
 
@@ -142,6 +144,12 @@ public class CompetitionMetier extends BaseMetier {
     }
 
     private CompetitionModel convertToCompetitionModel(CompetitionEntity entity) {
-        return map(entity, CompetitionModel.class);
+        CompetitionModel competitionModel = map(entity, CompetitionModel.class);
+        List<TeamModel> teamsList = new ArrayList<>();
+        entity.getCompetitionTeamEntityList().forEach(competitionTeamEntity -> {
+            teamsList.add(map(competitionTeamEntity.getTeamEntity(), TeamModel.class));
+        });
+        competitionModel.setTeamsList(teamsList);
+        return competitionModel;
     }
 }

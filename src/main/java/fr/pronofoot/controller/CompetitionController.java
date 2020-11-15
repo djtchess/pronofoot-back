@@ -63,7 +63,7 @@ public class CompetitionController {
     public CompetitionModel getCompetitionByPaysId(@PathVariable Long id) {
         System.out.println("/competitions/"+id+" appelée");
         CompetitionListModel competitionListModel = new CompetitionListModel();
-        return cm.getCompetitionsByPaysId(id);
+        return cm.getCompetitionById(id);
     }
 
 

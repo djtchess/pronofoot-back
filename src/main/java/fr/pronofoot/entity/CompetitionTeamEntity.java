@@ -29,17 +29,6 @@ public class CompetitionTeamEntity {
     @JoinColumn(name = "competition_id")
     private  CompetitionEntity competitionEntity;
 
-    public void setCompetitionEntity(CompetitionEntity competitionEntity) {
-        this.competitionEntity = competitionEntity;
-    }
-
-    public void setTeamEntity(TeamEntity teamEntity) {
-        this.teamEntity = teamEntity;
-    }
-
-    public void setSaisonEntity(SaisonEntity saisonEntity) {
-        this.saisonEntity = saisonEntity;
-    }
 
     @ManyToOne
     @JoinColumn(name = "team_id")

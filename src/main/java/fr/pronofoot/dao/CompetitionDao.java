@@ -25,8 +25,12 @@ public class CompetitionDao {
         return competitionRepository.findAll();
     }
 
-    public CompetitionEntity getCompetitionById(Long apiId) {
+    public CompetitionEntity getCompetitionByApiId(Long apiId) {
         return competitionRepository.findOneCompetitionByApiId(apiId);
+    }
+
+    public CompetitionEntity getCompetitionById(Long id) {
+        return competitionRepository.findOneCompetitionById(id);
     }
  
     public void saveAllCompetitions(List<CompetitionEntity> competitions){

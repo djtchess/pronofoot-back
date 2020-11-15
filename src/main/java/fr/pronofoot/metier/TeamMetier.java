@@ -44,7 +44,7 @@ public class TeamMetier extends BaseMetier{
     private List<TeamEntity> retrieveTeamsByCompetition(Long idCompetition){
         List<TeamEntity> listeTeams = new ArrayList<>();
         TeamList teamList = jfdataManager.getTeamsByCompetition(idCompetition.intValue());
-        CompetitionEntity competitionEntity = competitionDao.getCompetitionById(Long.valueOf(teamList.getCompetition().getId()));
+        CompetitionEntity competitionEntity = competitionDao.getCompetitionByApiId(Long.valueOf(teamList.getCompetition().getId()));
         teamList.getTeams().forEach(team -> {
             TeamEntity entity = teamDao.getTeamByName(team.getName());
             if (entity == null) {
