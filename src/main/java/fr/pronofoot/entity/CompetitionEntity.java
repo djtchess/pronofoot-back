@@ -1,6 +1,7 @@
 package fr.pronofoot.entity;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -39,6 +40,7 @@ public class CompetitionEntity {
     @Column(name = "api_id")
     private Long apiId;
 
+
     @ManyToOne
     private PaysEntity pays;
 
@@ -48,6 +50,10 @@ public class CompetitionEntity {
 
     @OneToMany(mappedBy = "competitionEntity", fetch=FetchType.LAZY, cascade={CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REMOVE})
     private List<SaisonEntity> saisonEntityList = new ArrayList<>();
+
+    public SaisonEntity getCurrentSaison(){
+        return  saisonEntityList.stream().max(Comparator.comparing(SaisonEntity::getDateDebut)).get();
+    }
 
     public void addSaison(SaisonEntity saison){
         this.saisonEntityList.add(saison);

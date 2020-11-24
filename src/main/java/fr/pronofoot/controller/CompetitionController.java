@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.pronofoot.entity.CompetitionEntity;
 import fr.pronofoot.entity.PaysEntity;
 import fr.pronofoot.metier.CompetitionMetier;
+import fr.pronofoot.metier.MatchMetier;
 import fr.pronofoot.model.CompetitionListModel;
 import fr.pronofoot.model.CompetitionModel;
+import fr.pronofoot.model.MatchListModel;
 import fr.pronofoot.model.PaysListModel;
 import fr.pronofoot.model.PaysModel;
 
@@ -28,6 +30,9 @@ public class CompetitionController {
 
     @Autowired
     private CompetitionMetier cm;
+
+    @Autowired
+    private MatchMetier mm;
 
     @RequestMapping(value="/pays", method= RequestMethod.GET, produces= "application/json")
     public PaysListModel retrieveAllpays(){
@@ -60,10 +65,19 @@ public class CompetitionController {
     }
 
     @GetMapping("/competitions/{id}")
-    public CompetitionModel getCompetitionByPaysId(@PathVariable Long id) {
+    public CompetitionModel getCompetitionById(@PathVariable Long id) {
         System.out.println("/competitions/"+id+" appelée");
-        CompetitionListModel competitionListModel = new CompetitionListModel();
         return cm.getCompetitionById(id);
+    }
+
+    @GetMapping("/competitions/{id}/matchs")
+    public MatchListModel getAllMatchByCompetitionId(@PathVariable Long id) {
+        MatchListModel matchListModel = new MatchListModel();
+        System.out.println("/competitions/"+id+"/matchs appelée");
+        matchListModel.setMatchList(mm.getAllMatchByCompetition(id));
+        matchListModel.setCount(Long.valueOf(mm.getAllMatchByCompetition(id).size()));
+        matchListModel.setCompetition(cm.getCompetitionById(id));
+        return matchListModel;
     }
 
 

@@ -1,12 +1,13 @@
 package fr.pronofoot.dao;
 
-import fr.pronofoot.entity.TeamEntity;
-import fr.pronofoot.repository.CompetitionTeamRepository;
-import fr.pronofoot.repository.TeamRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import fr.pronofoot.entity.TeamEntity;
+import fr.pronofoot.repository.CompetitionTeamRepository;
+import fr.pronofoot.repository.TeamRepository;
 
 @Component
 public class TeamDao {
@@ -27,6 +28,10 @@ public class TeamDao {
 
     public TeamEntity getTeamByName(String name){
         return teamRepository.findTeamByName(name);
+    }
+
+    public TeamEntity getTeamByApiId(Long id){
+        return teamRepository.findTeamByApiId(id);
     }
  
 }

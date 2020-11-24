@@ -1,12 +1,23 @@
 package fr.pronofoot.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Setter
 @Getter
@@ -66,9 +77,14 @@ public class TeamEntity {
         CompetitionTeamEntity competitionTeamEntity = new CompetitionTeamEntity();
         competitionTeamEntity.setTeamEntity(this);
         competitionTeamEntity.setCompetitionEntity(c);
+        competitionTeamEntity.setSaisonEntity(c.getCurrentSaison());
         this.competitionTeamEntityList.add(competitionTeamEntity);
     }
 
+    @OneToMany(mappedBy = "homeTeam", fetch=FetchType.LAZY)
+    private List<MatchEntity> matchHomeList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "awayTeam", fetch=FetchType.LAZY)
+    private List<MatchEntity> matchAwayList = new ArrayList<>();
    
 }

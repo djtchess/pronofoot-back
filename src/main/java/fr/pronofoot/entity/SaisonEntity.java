@@ -53,4 +53,7 @@ public class SaisonEntity {
     public void setCompetitionEntity(CompetitionEntity competitionEntity) {
         this.competitionEntity = competitionEntity;
     }
+
+    @OneToMany(mappedBy = "saisonEntity")
+    private List<MatchEntity> matchEntityList = new ArrayList<>();
 }

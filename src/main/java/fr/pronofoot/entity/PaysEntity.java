@@ -1,10 +1,19 @@
 package fr.pronofoot.entity;
 
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
-import java.util.Collection;
 
 @Setter
 @Getter
@@ -24,7 +33,7 @@ public class PaysEntity {
     @Column(name = "api_id")
     private Long apiId;
 
-    @OneToMany(mappedBy="pays", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="pays", fetch = FetchType.LAZY)
     private Collection<CompetitionEntity> competitions;
 
 
