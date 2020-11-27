@@ -1,6 +1,0 @@
-test\config\ConfigTest.class
-test\competition\CompetitionTest.class
-test\player\PlayerTest.class
-test\team\TeamTest.class
-test\match\MatchTest.class
-test\standing\StandingTest.class
