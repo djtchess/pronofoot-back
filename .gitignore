@@ -159,7 +159,7 @@ modules.xml
 .idea/sonarlint
 
 ### Maven ###
-target/
+target/*
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -172,3 +172,9 @@ buildNumber.properties
 .flattened-pom.xml
 
 # End of https://www.gitignore.io/api/maven,eclipse,intellij+all
+
+*.classpath
+*.project
+*.prefs
+*.MF
+*.log
