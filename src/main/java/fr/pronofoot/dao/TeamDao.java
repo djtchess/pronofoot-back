@@ -33,5 +33,9 @@ public class TeamDao {
     public TeamEntity getTeamByApiId(Long id){
         return teamRepository.findTeamByApiId(id);
     }
+
+    public TeamEntity getTeamById(Long id){
+        return teamRepository.getOne(id);
+    }
  
 }

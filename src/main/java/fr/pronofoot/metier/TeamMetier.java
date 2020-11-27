@@ -29,6 +29,10 @@ public class TeamMetier extends BaseMetier{
     @Autowired
     private JfdataManager jfdataManager;
 
+    public TeamModel getTeamById(Long id){
+        return map(teamDao.getTeamById(id),TeamModel.class);
+    }
+
     public List<TeamModel> createAllTeamsByCompetition(Long idCompetition){
         List<TeamEntity> teamEntities = retrieveTeamsByCompetition(idCompetition);
         saveAllTeams(teamEntities);
@@ -73,6 +77,8 @@ public class TeamMetier extends BaseMetier{
         teamEntity.setApiId(Long.valueOf(team.getId()));
         return  teamEntity;
     }
+
+
 
 
 

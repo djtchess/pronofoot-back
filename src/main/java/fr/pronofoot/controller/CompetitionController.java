@@ -77,6 +77,24 @@ public class CompetitionController {
         matchListModel.setMatchList(mm.getAllMatchByCompetition(id));
         matchListModel.setCount(Long.valueOf(mm.getAllMatchByCompetition(id).size()));
         matchListModel.setCompetition(cm.getCompetitionById(id));
+        matchListModel.getMatchList().forEach(match -> {
+            match.getHomeTeam().getPays().setCompetitions(null);
+            match.getAwayTeam().getPays().setCompetitions(null);
+        });
+        return matchListModel;
+    }
+
+    @GetMapping("/competitions/{id}/teams/{idTeam}")
+    public MatchListModel getAllMatchByCompetitionIdAndTeamId(@PathVariable Long id, @PathVariable Long idTeam) {
+        MatchListModel matchListModel = new MatchListModel();
+        System.out.println("/competitions/"+id+"/teams/"+idTeam+" appelée");
+        matchListModel.setMatchList(mm.getMatchsByTeamForCompetition(id,idTeam));
+        matchListModel.setCount(Long.valueOf(mm.getMatchsByTeamForCompetition(id,idTeam).size()));
+        matchListModel.setCompetition(cm.getCompetitionById(id));
+        matchListModel.getMatchList().forEach(match -> {
+            match.getHomeTeam().getPays().setCompetitions(null);
+            match.getAwayTeam().getPays().setCompetitions(null);
+        });
         return matchListModel;
     }
 

@@ -33,7 +33,31 @@ public class MatchMetier extends BaseMetier {
     @Autowired
     private CompetitionDao competitionDao;
 
+    public void getClassementByCompetition(Long id){
+        CompetitionEntity competitionEntity = competitionDao.getCompetitionById(id);
+        competitionEntity.getCompetitionTeamEntityList().stream()
+                .filter(competitionTeamEntity -> competitionTeamEntity.getSaisonEntity().equals(competitionEntity.getCurrentSaison()))
+        .forEach(competitionTeamEntity -> {
+            System.out.println("*********** "+ competitionTeamEntity.getTeamEntity().getShortName()+" **********");
+            matchDao.getAllMatchByTeamFinished(competitionEntity, competitionTeamEntity.getTeamEntity());
+        });
+
+    }
+
+    public List<MatchModel> getMatchsByTeamForCompetition(Long idCompetition, Long idTeam){
+        List<MatchModel> matchModelList = new ArrayList<>();
+        CompetitionEntity competitionEntity = competitionDao.getCompetitionById(idCompetition);
+        TeamEntity teamEntity = teamDao.getTeamById(idTeam);
+        matchDao.getAllMatchByTeam(competitionEntity, teamEntity).forEach(matchEntity -> {
+            matchModelList.add(convertMatchEntityToMatchModel(matchEntity));
+        });
+        return matchModelList;
+
+    }
+
     public List<MatchModel> getAllMatchByCompetition(Long id){
+        getClassementByCompetition(id);
+
         List<MatchModel> matchModelList = new ArrayList<>();
 
         CompetitionEntity competitionEntity = competitionDao.getCompetitionById(id);
@@ -83,6 +107,7 @@ public class MatchMetier extends BaseMetier {
             matchEntity.setUtcDate(Date.valueOf(match.getUtcDate().substring(0,10)));
         }
         return  matchEntity;
+
     }
 
     private MatchModel convertMatchEntityToMatchModel(MatchEntity entity){
