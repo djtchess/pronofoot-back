@@ -23,7 +23,7 @@ import fr.pronofoot.model.MatchListModel;
 import fr.pronofoot.model.PaysListModel;
 import fr.pronofoot.model.PaysModel;
 
-@CrossOrigin(origins = {"http://localhost:4200"}, allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200","https://sitepersodavid.pagesperso-orange.fr"}, allowCredentials = "true")
 @RestController
 @RequestMapping(value="/pronofoot")
 public class CompetitionController {
@@ -98,8 +98,6 @@ public class CompetitionController {
         return matchListModel;
     }
 
-
-
     private PaysModel convertToPaysPModel( PaysEntity entity){
         PaysModel model = new PaysModel();
         model.setId(entity.getId());
@@ -110,6 +108,7 @@ public class CompetitionController {
 
         model.setCompetitions(competitions);
         model.setNomPays(entity.getNomPays());
+        model.setDrapeau(entity.getDrapeau());
         return model;
     }
 

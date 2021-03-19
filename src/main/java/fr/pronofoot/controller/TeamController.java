@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.pronofoot.metier.TeamMetier;
 import fr.pronofoot.model.TeamModel;
 
-@CrossOrigin(origins = {"http://localhost:4200"}, allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200","https://sitepersodavid.pagesperso-orange.fr"}, allowCredentials = "true")
 @RestController
 @RequestMapping(value="/pronofoot")
 public class TeamController {

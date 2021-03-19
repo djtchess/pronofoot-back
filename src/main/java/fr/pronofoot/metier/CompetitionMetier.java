@@ -73,12 +73,21 @@ public class CompetitionMetier extends BaseMetier {
 
         competitionList.getCompetitions().forEach(competition -> {
             PaysEntity pays = paysDao.getPaysByName(competition.getArea().getName());
-            CompetitionEntity competitionEntity = convertCompetitionToCompetitionEntity(competition);
-            competitionEntity.setPays(pays);
-            SaisonEntity saisonEntity = getSaisonEntity(competition);
-            if (saisonEntity !=null ){
-                competitionEntity.addSaison(getSaisonEntity(competition));
+            CompetitionEntity competitionEntity = competitionDao.getCompetitionByApiId(Long.valueOf(competition.getId()));
+            if (competitionEntity == null){
+                competitionEntity = new CompetitionEntity();
+                competitionEntity.setNom(competition.getName());
+                competitionEntity.setCode(competition.getCode());
+                competitionEntity.setApiId(Long.valueOf(competition.getId()));
+                competitionEntity.setPays(pays);
+                SaisonEntity saisonEntity = getSaisonEntity(competition);
+                if (saisonEntity !=null ){
+                    competitionEntity.addSaison(getSaisonEntity(competition));
+                }
+            }else if ( competitionEntity.getCurrentSaison()!=null ){
+                competitionEntity.getCurrentSaison().setCurrentMatchDay((competition.getCurrentSeason().getCurrentMatchday()== null ? 0L : Long.valueOf(competition.getCurrentSeason().getCurrentMatchday())));
             }
+
             listeCompetitions.add(competitionEntity);
 
 
@@ -110,6 +119,7 @@ public class CompetitionMetier extends BaseMetier {
         return competitions;
     }
 
+
     public List<PaysModel> createAllpays() {
         List<PaysEntity> pays = retrievePays();
         saveAllPays(pays);
@@ -124,8 +134,8 @@ public class CompetitionMetier extends BaseMetier {
         return paysEntity;
     }
 
-    private CompetitionEntity convertCompetitionToCompetitionEntity(Competition competition) {
-        CompetitionEntity competitionEntity = new CompetitionEntity();
+    private CompetitionEntity convertCompetitionToCompetitionEntity(Competition competition, CompetitionEntity competitionEntity) {
+        if (competitionEntity == null) competitionEntity = new CompetitionEntity();
         competitionEntity.setNom(competition.getName());
         competitionEntity.setCode(competition.getCode());
         competitionEntity.setApiId(Long.valueOf(competition.getId()));

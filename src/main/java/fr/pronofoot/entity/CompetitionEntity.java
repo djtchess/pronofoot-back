@@ -52,7 +52,8 @@ public class CompetitionEntity {
     private List<SaisonEntity> saisonEntityList = new ArrayList<>();
 
     public SaisonEntity getCurrentSaison(){
-        return  saisonEntityList.stream().max(Comparator.comparing(SaisonEntity::getDateDebut)).get();
+        if (!saisonEntityList.isEmpty())  return  saisonEntityList.stream().max(Comparator.comparing(SaisonEntity::getDateDebut)).get();
+        return null;
     }
 
     public void addSaison(SaisonEntity saison){

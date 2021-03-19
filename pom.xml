@@ -21,6 +21,13 @@
     </parent>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.3</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -89,6 +96,9 @@
         </dependency>
 
 
+
+
+
     </dependencies>
 
     <build>
@@ -110,11 +120,19 @@
             <build>
                 <resources>
                     <resource>
-                        <filtering>true</filtering>
+                        <filtering>false</filtering>
                         <directory>src/main/resources</directory>
                     </resource>
                 </resources>
                 <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <configuration>
+                            <nonFilteredFileExtensions>
+                                <nonFilteredFileExtension>p12</nonFilteredFileExtension>
+                            </nonFilteredFileExtensions>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>

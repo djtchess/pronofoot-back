@@ -11,6 +11,7 @@ public class PaysModel {
 
     private Long id;
     private String nomPays;
+    private String drapeau;
     private Collection<CompetitionModel> competitions;
 
 }

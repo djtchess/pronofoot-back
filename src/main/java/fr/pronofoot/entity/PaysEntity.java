@@ -30,8 +30,12 @@ public class PaysEntity {
     @Column(name = "nom")
     private String nomPays;
 
+    @Column(name= "drapeau")
+    private String drapeau;
+
     @Column(name = "api_id")
     private Long apiId;
+
 
     @OneToMany(mappedBy="pays", fetch = FetchType.LAZY)
     private Collection<CompetitionEntity> competitions;
@@ -39,7 +43,9 @@ public class PaysEntity {
 
     public boolean isBigPays(){
         System.out.println(this.nomPays.toUpperCase().trim());
-        if (this.nomPays.toUpperCase().trim().equals("FRANCE") || this.nomPays.toUpperCase().trim().equals("SPAIN")) {
+        if (this.nomPays.toUpperCase().trim().equals("FRANCE")
+                || this.nomPays.toUpperCase().trim().equals("SPAIN")
+                || this.nomPays.toUpperCase().trim().equals("ENGLAND")) {
             return true;
         }
         return false;

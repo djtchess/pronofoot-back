@@ -3,6 +3,7 @@ package fr.pronofoot.metier;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,21 +53,16 @@ public class MatchMetier extends BaseMetier {
             matchModelList.add(convertMatchEntityToMatchModel(matchEntity));
         });
         return matchModelList;
-
     }
 
     public List<MatchModel> getAllMatchByCompetition(Long id){
         getClassementByCompetition(id);
-
         List<MatchModel> matchModelList = new ArrayList<>();
-
         CompetitionEntity competitionEntity = competitionDao.getCompetitionById(id);
         matchDao.getAllMatchByCompetition(competitionEntity).forEach(matchEntity -> {
             matchModelList.add(convertMatchEntityToMatchModel(matchEntity));
         });
-
         return  matchModelList;
-
     }
 
     public List<MatchEntity> retrieveAllMatchByCompetition(Long id){
@@ -76,6 +72,27 @@ public class MatchMetier extends BaseMetier {
         CompetitionEntity competitionEntity = competitionDao.getCompetitionByApiId(Long.valueOf(matchList.getCompetition().getId()));
         matchList.getMatches().forEach(match -> {
                 matchEntities.add(convertMatchToMatchEntity(match, competitionEntity));
+        });
+        matchDao.saveAllMatches(matchEntities);
+        return matchEntities;
+    }
+
+    public List<MatchEntity> retrieveAllMatchByCompetitionByDay(Long id, String day){
+        List<MatchEntity> matchEntities = new ArrayList<>();
+        JfdataManager jfdataManager = new JfdataManager();
+        MatchList matchList = jfdataManager.getMatchesByCompetition(id.intValue());
+        CompetitionEntity competitionEntity = competitionDao.getCompetitionByApiId(Long.valueOf(matchList.getCompetition().getId()));
+        matchList.getMatches().stream()
+                .filter(match -> match.getMatchday().equals(day))
+                .map(match -> {
+                    match.getScore().getFullTime().setAwayTeam("0");
+                    match.getScore().getFullTime().setHomeTeam("0");
+                    match.setStatus("SCHEDULED");
+                    return match;
+                })
+                .collect(Collectors.toList())
+                .forEach(match -> {
+            matchEntities.add(convertMatchToMatchEntity(match, competitionEntity));
         });
         matchDao.saveAllMatches(matchEntities);
         return matchEntities;

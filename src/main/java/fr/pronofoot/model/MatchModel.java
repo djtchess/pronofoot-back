@@ -23,5 +23,6 @@ public class MatchModel {
     private int butAwayPenalties;
     private TeamModel homeTeam;
     private TeamModel awayTeam;
+    private String Status;
 
 }

@@ -1,9 +1,12 @@
 package fr.pronofoot.jfdata.model.match;
 
+import lombok.NoArgsConstructor;
+
 /**
  * Class model for Score
  * @author remimarion
  */
+@NoArgsConstructor
 public class MatchScore {
 	
 	//ATTRIBUT
